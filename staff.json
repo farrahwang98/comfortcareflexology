@@ -2,40 +2,46 @@
   "timezone": "America/Los_Angeles",
   "default_hours": {
     "start": "10:00",
-    "end": "22:00"
+    "end": "21:30"
   },
   "employees": [
     {
-      "id": "linda",
+      "id": "Steven",
+      "name": "Steven"
+    },
+    {
+      "id": "Lisa",
+      "name": "Lisa"
+    },
+    {
+      "id": "Rose",
+      "name": "Rose"
+    },
+    {
+      "id": "Linda",
       "name": "Linda"
-    },
-    {
-      "id": "amy",
-      "name": "Amy"
-    },
-    {
-      "id": "ben",
-      "name": "Ben"
     },
     {
       "id": "cindy",
       "name": "Cindy"
     },
     {
-      "id": "david",
-      "name": "David"
+      "id": "Susan",
+      "name": "Susan"
     }
   ],
   "schedules": {
     "2025-10-27": {
       "working": [
-        "linda",
-        "amy",
-        "ben"
+        "Steven",
+        "Lisa",
+        "Rose",
+        "Linda"
+        
       ],
       "off": [
-        "cindy",
-        "david"
+        "Cindy",
+        "Susan"
       ]
     },
     "2025-10-28": {
