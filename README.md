@@ -1,4 +1,4 @@
-# Comfort Care Reflexology — Static Site (English)
+# Comfort Care Reflexology
 
 Edit content in `site.config.json`.  
 Owner can manage staff by editing `staff.json` directly in GitHub.
