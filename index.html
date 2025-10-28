@@ -1,48 +1,94 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Comfort Care Reflexology · Booking · Pricing · Services</title>
-  <meta name="description" content="Comfort Care Reflexology — Eastvale & Norco. Table, Deep Tissue, Combo, Foot, Chair. Call to book or send a request.">
-  <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
-  <meta property="og:title" content="Comfort Care Reflexology">
-  <meta property="og:description" content="Professional team • Two convenient locations.">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="./assets/favicon.svg">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Comfort Care Reflexology</title>
+
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Cute Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&family=Fredoka:wght@500;700&display=swap" rel="stylesheet">
+
+  <!-- Cute Theme -->
   <style>
-    .card{border-radius:1rem;box-shadow:0 2px 12px rgba(0,0,0,.06)}
-    .chip{display:inline-flex;align-items:center;gap:.4rem;padding:.25rem .6rem;border-radius:999px;background:#d1fae5;color:#065f46;font-size:.75rem}
+    :root{
+      --mint:#DFF7EC;        
+      --mint-strong:#17A673; 
+      --peach:#FFE7EC;       
+      --lemon:#FFF8D7;       
+      --ink:#183046;         
+      --ink-soft:#5B6B79;    
+      --card-shadow:0 8px 30px rgba(14,125,98,0.08);
+      --radius:22px;         
+    }
+    html,body{ font-family:'Nunito',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif; color:var(--ink); }
+    h1,h2,h3{ font-family:'Fredoka','Nunito',sans-serif; letter-spacing:.2px; }
+
+    body{
+      background:
+        radial-gradient(1200px 500px at 10% -10%, var(--mint) 0%, transparent 60%),
+        radial-gradient(900px 400px at 100% 0%, var(--peach) 0%, transparent 65%),
+        #fff;
+    }
+
+    .cc-card{ background:#fff; border-radius:var(--radius); box-shadow:var(--card-shadow); }
+    .cc-pop{ transition:transform .18s ease, box-shadow .18s ease; }
+    .cc-pop:hover{ transform:translateY(-2px); box-shadow:0 12px 34px rgba(14,125,98,0.12); }
+
+    .cc-sticker{ display:inline-flex; align-items:center; gap:.5rem; padding:.35rem .75rem;
+                 border-radius:999px; background:var(--lemon); color:#7A6B00; font-weight:700; font-size:.9rem; }
+
+    .cc-btn{ display:inline-flex; align-items:center; justify-content:center; gap:.5rem;
+             padding:.7rem 1.1rem; border-radius:999px; font-weight:700; transition:.18s ease; }
+    .cc-btn-primary{ background:var(--mint-strong); color:#fff; box-shadow:0 6px 16px rgba(23,166,115,.25); }
+    .cc-btn-primary:hover{ transform:translateY(-1px) scale(1.01); box-shadow:0 10px 24px rgba(23,166,115,.28); }
+    .cc-btn-ghost{ background:#fff; color:var(--mint-strong); border:2px solid rgba(23,166,115,.15); }
+    .cc-btn-ghost:hover{ background:var(--mint); }
+
+    .cc-title{ position:relative; display:inline-block; }
+    .cc-title:after{ content:""; position:absolute; left:8px; right:8px; bottom:-6px; height:10px;
+                     background:linear-gradient(90deg, var(--peach), var(--mint)); border-radius:12px; opacity:.55; }
+
+    .cc-badge{ padding:.25rem .6rem; border-radius:999px; font-weight:700; font-size:.8rem; }
+    .cc-open{ background:#E6F8EE; color:#087A55; }
+    .cc-closed{ background:#FFF0F1; color:#B72A45; }
   </style>
 </head>
-<body class="text-gray-900 bg-white">
-<header class="sticky top-0 z-40 bg-white/80 backdrop-blur border-b">
-  <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
-    <a href="#top" class="font-bold text-xl">Comfort Care Reflexology</a>
-    <nav class="hidden md:flex items-center gap-6 text-sm">
-      <a href="#services" class="hover:underline">Services</a>
-      <a href="#pricing" class="hover:underline">Pricing</a>
-      <a href="#booking" class="hover:underline">Booking</a>
-      <a href="#contact" class="hover:underline">Contact</a>
-    </nav>
-    <a href="#booking" class="inline-flex items-center bg-emerald-600 text-white px-4 py-2 rounded-2xl">Book Now</a>
-  </div>
-</header>
 
-<main id="top">
+<body class="text-gray-900 bg-white" id="top">
+  <!-- Header -->
+  <header class="sticky top-0 z-40 backdrop-blur bg-white/75 border-b">
+    <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <span class="w-9 h-9 rounded-xl bg-white shadow-sm grid place-items-center">🦶</span>
+        <a href="#top" class="font-extrabold text-xl tracking-tight">Comfort Care Reflexology</a>
+        <span id="openBadge" class="cc-badge cc-open hidden">Open now</span>
+        <span id="closedBadge" class="cc-badge cc-closed hidden">Closed</span>
+      </div>
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <a href="#services" class="hover:underline">Services</a>
+        <a href="#pricing" class="hover:underline">Pricing</a>
+        <a href="#booking" class="hover:underline">Booking</a>
+        <a href="#contact" class="hover:underline">Contact</a>
+      </nav>
+      <a href="#booking" class="cc-btn cc-btn-primary">💚 Book Now</a>
+    </div>
+  </header>
+
   <!-- Hero -->
   <section class="relative overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-b from-emerald-50 to-white"></div>
+    <div class="absolute inset-0" style="background:linear-gradient(180deg, rgba(223,247,236,.8), rgba(255,255,255,1));"></div>
     <div class="max-w-6xl mx-auto px-4 py-20 relative">
-      <span class="chip">⭐ Relax & Rejuvenate</span>
-      <h1 class="mt-4 text-4xl md:text-5xl font-extrabold tracking-tight">Comfort Care Reflexology</h1>
+      <span class="cc-sticker">✨ Relax & Rejuvenate</span>
+      <h1 class="mt-4 text-5xl md:text-6xl font-extrabold tracking-tight">Comfort Care Reflexology</h1>
       <p class="mt-4 text-lg text-gray-600">
         Professional team • Two convenient locations. Foot, table, deep tissue, combo and more to help you de-stress and recharge.
       </p>
-      <div class="mt-6 flex flex-wrap gap-3">
-        <a href="#booking" class="inline-flex items-center bg-emerald-600 text-white px-5 py-2 rounded-2xl">Book Now</a>
-        <a href="#pricing" class="inline-flex items-center border px-5 py-2 rounded-2xl">See Pricing</a>
+      <div class="mt-7 flex flex-wrap gap-3">
+        <a href="#booking" class="cc-btn cc-btn-primary">📞 Book by Phone</a>
+        <a href="#services" class="cc-btn cc-btn-ghost">🍑 View Services</a>
       </div>
     </div>
   </section>
@@ -50,434 +96,142 @@
   <!-- Services -->
   <section id="services" class="max-w-6xl mx-auto px-4 py-16">
     <div class="text-center max-w-3xl mx-auto mb-10">
-      <h2 class="text-3xl md:text-4xl font-bold tracking-tight">Services</h2>
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight cc-title">🫧 Services</h2>
       <p class="mt-1 text-sm text-gray-500">Ask front desk for preferences or therapist requests.</p>
     </div>
-    <div id="servicesGrid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
-    <div class="mt-6 text-sm text-gray-500 text-center">* Prices may vary by holiday/promotion. In-store price prevails.</div>
-  </section>
 
-  <!-- Pricing -->
-  <section id="pricing" class="max-w-6xl mx-auto px-4 py-16">
-    <div class="text-center max-w-3xl mx-auto mb-10">
-      <h2 class="text-3xl md:text-4xl font-bold tracking-tight">Pricing</h2>
-      <p class="mt-1 text-sm text-gray-500">Optional Add-ons</p>
-    </div>
-    <div class="grid lg:grid-cols-3 gap-6" id="pricingGrid"></div>
-  </section>
-
-  <!-- Booking -->
-  <section id="booking" class="max-w-6xl mx-auto px-4 py-16">
-    <div class="text-center max-w-3xl mx-auto mb-10">
-      <h2 class="text-3xl md:text-4xl font-bold tracking-tight">Booking</h2>
-      <p class="mt-1 text-sm text-gray-500">We recommend booking by phone to reserve your preferred therapist.</p>
-    </div>
-
-    <div class="grid lg:grid-cols-2 gap-8">
-      <div class="card p-6">
-        <h3 class="text-lg font-semibold">Phone Booking (Recommended)</h3>
-        <p class="text-sm text-gray-500 mt-1">Choose a location and call to confirm quickly.</p>
-        <div id="phoneBooking" class="space-y-4 mt-4"></div>
-        <p class="text-xs text-gray-500 mt-2">* If you prefer a specific therapist/pressure, please mention it in the call.</p>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="cc-card cc-pop p-5">
+        <div class="text-emerald-700 font-semibold text-lg mb-1">Table Massage (Hot Oil & Hot Stones, Private Room)</div>
+        <ul class="text-sm text-gray-700 space-y-1">
+          <li>30 min — <b>$40</b></li>
+          <li>60 min — <b>$50</b></li>
+          <li>90 min — <b>$75</b></li>
+          <li>120 min — <b>$100</b></li>
+        </ul>
       </div>
 
-      <div class="card p-6">
-        <h3 class="text-lg font-semibold">Online Booking Request (Optional)</h3>
-        <p class="text-sm text-gray-500 mt-1">This opens an email draft; we will call to confirm.</p>
-        <form id="intentForm" class="space-y-3 mt-3">
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <div>
-              <label class="block text-sm font-medium">Location</label>
-              <select id="locationSelect" class="mt-1 w-full border rounded-md px-3 py-2"></select>
-            </div>
-            <div>
-              <label class="block text-sm font-medium">Date</label>
-              <input id="date" type="date" class="mt-1 w-full border rounded-md px-3 py-2">
-            </div>
-            <div>
-              <label class="block text-sm font-medium">Time</label>
-              <input id="time" type="time" class="mt-1 w-full border rounded-md px-3 py-2">
-            </div>
-            <div>
-              <label class="block text-sm font-medium">Name</label>
-              <input id="name" placeholder="Your name" class="mt-1 w-full border rounded-md px-3 py-2">
-            </div>
-            <div>
-              <label class="block text-sm font-medium">Phone</label>
-              <input id="phone" placeholder="Your phone" class="mt-1 w-full border rounded-md px-3 py-2">
-            </div>
-          </div>
+      <div class="cc-card cc-pop p-5">
+        <div class="text-emerald-700 font-semibold text-lg mb-1">Deep Tissue Massage</div>
+        <ul class="text-sm text-gray-700 space-y-1">
+          <li>60 min — <b>$60</b></li>
+          <li>90 min — <b>$90</b></li>
+          <li>120 min — <b>$120</b></li>
+        </ul>
+      </div>
+
+      <div class="cc-card cc-pop p-5">
+        <div class="text-emerald-700 font-semibold text-lg mb-1">Targeted Massage (Head, Neck, Back & Shoulders)</div>
+        <p class="text-sm">60 min — <b>$60</b></p>
+      </div>
+
+      <div class="cc-card cc-pop p-5">
+        <div class="text-emerald-700 font-semibold text-lg mb-1">Combo Massage</div>
+        <ul class="text-sm text-gray-700 space-y-1">
+          <li>60 min — <b>$50</b> (30 min foot + 30 min back with hot stones)</li>
+          <li>90 min — <b>$70</b></li>
+        </ul>
+      </div>
+
+      <div class="cc-card cc-pop p-5">
+        <div class="text-emerald-700 font-semibold text-lg mb-1">Foot Massage</div>
+        <p class="text-sm">60 min — <b>$45</b> (45 min foot + 15 min back)</p>
+      </div>
+
+      <div class="cc-card cc-pop p-5">
+        <div class="text-emerald-700 font-semibold text-lg mb-1">Chair Massage</div>
+        <p class="text-sm">30 min — <b>$40</b> (head, neck, shoulders & back)</p>
+      </div>
+    </div>
+
+    <div class="mt-6 cc-card cc-pop p-5">
+      <h3 class="font-semibold">Add-ons</h3>
+      <ul class="text-sm text-gray-700 list-disc ml-6 mt-2 space-y-1">
+        <li>Essential Oil + <b>$15</b></li>
+        <li>Sea Salt Foot Scrub + <b>$5</b></li>
+        <li>Herbal Medicine + <b>$10</b></li>
+        <li>Deep Tissue Upgrade + <b>$10</b></li>
+      </ul>
+      <p class="text-xs text-gray-500 mt-3">* Get 5 stamps from these services and your next visit is $10 off.</p>
+    </div>
+  </section>
+
+  <!-- Phone Booking -->
+  <section id="booking" class="max-w-6xl mx-auto px-4 py-10">
+    <div class="cc-card cc-pop p-6">
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight cc-title">💚 Phone Booking</h2>
+      <p class="text-sm text-gray-500 mt-2">Call your preferred location to make a reservation.</p>
+
+      <div class="mt-6 space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 border rounded-xl p-4">
           <div>
-            <label class="block text-sm font-medium">Notes</label>
-            <textarea id="notes" placeholder="Service/duration/therapist preference" class="mt-1 w-full border rounded-md px-3 py-2"></textarea>
+            <div class="font-medium text-lg">📍 Eastvale</div>
+            <div class="text-sm text-gray-500">14244 Schleisman Rd Ste 110, Eastvale, CA 92880</div>
           </div>
-          <button class="w-full inline-flex items-center justify-center bg-emerald-600 text-white px-4 py-2 rounded-2xl">Send Booking Request</button>
-          <p class="text-xs text-gray-500">Note: Phone confirmation is required. Online form collects your request only.</p>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact" class="max-w-6xl mx-auto px-4 py-10">
-    <div class="card p-6">
-      <h3 class="text-lg font-semibold">Contact</h3>
-      <p class="text-sm text-gray-500">We recommend booking by phone to reserve your preferred therapist.</p>
-      <div id="contactGrid" class="grid md:grid-cols-2 gap-6 mt-4"></div>
-    </div>
-  </section>
-
-  <!-- Reviews -->
-  <section class="max-w-6xl mx-auto px-4 py-16">
-    <div class="text-center max-w-3xl mx-auto mb-10">
-      <h2 class="text-3xl md:text-4xl font-bold tracking-tight">Reviews</h2>
-    </div>
-    <div class="grid md:grid-cols-3 gap-6">
-      <div class="card p-6 space-y-3"><div>★★★★★</div><p class="text-sm text-gray-600">Clean environment and professional therapists. Highly recommend!</p><p class="text-xs">— Local Guide</p></div>
-      <div class="card p-6 space-y-3"><div>★★★★★</div><p class="text-sm text-gray-600">Transparent pricing and friendly service.</p><p class="text-xs">— Customer</p></div>
-      <div class="card p-6 space-y-3"><div>★★★★★</div><p class="text-sm text-gray-600">Hot stones felt amazing. Will come back!</p><p class="text-xs">— Regular</p></div>
-    </div>
-  </section>
-
-  <!-- Staff Schedule -->
-  <section id="schedule" class="max-w-6xl mx-auto px-4 py-16">
-    <div class="text-center max-w-3xl mx-auto mb-8">
-      <h2 class="text-3xl md:text-4xl font-bold tracking-tight">Staff Schedule</h2>
-      <p class="text-gray-600 mt-2">Owner edits <code>staff.json</code> in GitHub to mark Working/Off and booked slots.</p>
-    </div>
-    <div class="card p-6">
-      <div class="flex flex-col md:flex-row md:items-end gap-4">
-        <div>
-          <label class="block text-sm font-medium">Date</label>
-          <input id="schedDate" type="date" class="mt-1 border rounded-md px-3 py-2">
+          <div class="flex gap-2 flex-wrap">
+            <a href="tel:9515201996" class="cc-btn cc-btn-primary">📞 (951) 520-1996</a>
+            <a href="https://maps.google.com/?q=14244+Schleisman+Rd+Ste+110,+Eastvale,+CA+92880" target="_blank" class="cc-btn cc-btn-ghost">🗺 Map</a>
+          </div>
         </div>
-        <div>
-          <label class="block text-sm font-medium">View</label>
-          <select id="schedView" class="mt-1 border rounded-md px-3 py-2">
-            <option value="summary">Summary (Working / Off)</option>
-            <option value="grid">Time Grid (Booked = gray)</option>
-          </select>
+
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 border rounded-xl p-4">
+          <div>
+            <div class="font-medium text-lg">📍 Norco</div>
+            <div class="text-sm text-gray-500">2420 River Rd Ste 220, Norco, CA 92860</div>
+          </div>
+          <div class="flex gap-2 flex-wrap">
+            <a href="tel:9512686189" class="cc-btn cc-btn-primary">📞 (951) 268-6189</a>
+            <a href="https://maps.google.com/?q=2420+River+Rd+Ste+220,+Norco,+CA+92860" target="_blank" class="cc-btn cc-btn-ghost">🗺 Map</a>
+          </div>
         </div>
       </div>
-      <div id="schedSummary" class="mt-6"></div>
-      <div id="schedGrid" class="mt-6 hidden"></div>
+
+      <div class="mt-6 cc-card p-4 bg-amber-50 border border-amber-200">
+        <h4 class="font-semibold text-amber-800">🕒 Business Hours</h4>
+        <ul class="text-sm text-gray-700 mt-2 space-y-1">
+          <li><b>Mon – Sat:</b> 10:00 AM – 9:30 PM</li>
+          <li><b>Sun:</b> 11:00 AM – 9:30 PM</li>
+        </ul>
+        <p class="text-sm text-gray-600 mt-3">
+          <em>📌 Note:</em> The last full appointment can be scheduled at <b>8:45 PM</b>.
+          For appointments after <b>9:00 PM</b>, only <b>30-minute</b> sessions are available.
+        </p>
+      </div>
     </div>
   </section>
 
-</main>
-
-<footer class="border-t">
-  <div class="max-w-6xl mx-auto px-4 py-10 grid md:grid-cols-3 gap-8">
-    <div>
-      <h3 class="font-semibold text-lg">Comfort Care Reflexology</h3>
-      <p class="text-sm text-gray-600 mt-2">Relax & Rejuvenate</p>
-      <div class="flex gap-3 mt-4">
-        <a id="facebookLink" class="inline-flex items-center border px-3 py-2 rounded-full text-sm" target="_blank" rel="noreferrer">Facebook</a>
-        <a id="instagramLink" class="inline-flex items-center border px-3 py-2 rounded-full text-sm" target="_blank" rel="noreferrer">Instagram</a>
-      </div>
-    </div>
-    <div>
-      <h4 class="font-medium">Locations</h4>
-      <ul id="footerLocations" class="mt-3 space-y-3 text-sm"></ul>
-    </div>
-    <div>
-      <h4 class="font-medium">Helpful Notes</h4>
-      <ul class="mt-3 text-sm text-gray-600 space-y-2">
-        <li>Please arrive 10 minutes early; late arrival may shorten your session.</li>
-        <li>Please inform us in advance of pregnancy, illness, or skin issues.</li>
-        <li>We accept cash and major cards; gratuity is appreciated but optional.</li>
-      </ul>
-    </div>
-  </div>
-  <div class="text-center text-xs text-gray-500 pb-6">© <span id="year"></span> Comfort Care Reflexology. All rights reserved.</div>
-</footer>
-
-<!-- Fallback modal for email-less devices -->
-<div id="fallbackModal" class="fixed inset-0 bg-black/40 hidden items-center justify-center z-50">
-  <div class="bg-white rounded-2xl p-6 max-w-lg w-[92%]">
-    <h3 class="text-lg font-semibold">Booking Email Preview</h3>
-    <p class="text-sm text-gray-500 mt-1">
-      If your device didn’t open an email app, copy the text below and send it to
-      <span class="font-medium">comfortcarereflexology@gmail.com</span>.
-    </p>
-    <textarea id="fallbackText" class="mt-3 w-full h-40 border rounded-md p-3 text-sm"></textarea>
-    <div class="mt-4 flex justify-end gap-2">
-      <button id="copyBtn" class="px-4 py-2 rounded-2xl border">Copy</button>
-      <button id="closeModal" class="px-4 py-2 rounded-2xl bg-emerald-600 text-white">Close</button>
-    </div>
-  </div>
-</div>
-
-<script>
-async function loadConfig() {
-  const res = await fetch('./site.config.json');
-  const cfg = await res.json();
-
-  document.title = cfg.brand + ' · Booking · Pricing · Services';
-  document.getElementById('facebookLink').href = cfg.social.facebook || '#';
-  document.getElementById('instagramLink').href = cfg.social.instagram || '#';
-
-  // Services
-  const sGrid = document.getElementById('servicesGrid');
-  cfg.services.forEach(s => {
-    const card = document.createElement('div');
-    card.className = 'card p-5';
-    card.innerHTML = `
-      <div class="text-emerald-700 font-semibold text-lg mb-1">${s.title}</div>
-      <p class="text-sm text-gray-500 mb-3">${s.desc}</p>
-      <ul class="space-y-2">${
-        s.durations.map(d => `
-          <li class="flex items-center justify-between text-sm border-b pb-2">
-            <span>⏱ ${d.label}</span>
-            <span class="font-semibold">$${d.price}</span>
-          </li>`).join('')
-      }</ul>`;
-    sGrid.appendChild(card);
-  });
-
-  // Pricing
-  const pGrid = document.getElementById('pricingGrid');
-  const left = document.createElement('div');
-  left.className = 'card p-5';
-  left.innerHTML = `
-    <div class="text-lg font-semibold">Main Services</div>
-    <div class="mt-4 space-y-4">
-      ${cfg.services.map(s=>`
-        <div>
-          <div class="font-medium mb-2">${s.title}</div>
-          <ul class="space-y-2">
-            ${s.durations.map(d=>`
-              <li class="flex items-center justify-between text-sm border-b pb-2">
-                <span>⏱ ${d.label}</span>
-                <span class="font-semibold">$${d.price}</span>
-              </li>`).join('')}
-          </ul>
-        </div>`).join('')}
-    </div>`;
-  pGrid.appendChild(left);
-
-  const addons = document.createElement('div');
-  addons.className = 'card p-5';
-  addons.innerHTML = `
-    <div class="text-lg font-semibold">Add-ons</div>
-    <p class="text-sm text-gray-500">Can be added to any service</p>
-    <div class="mt-4">
-      <ul class="space-y-2">
-        ${cfg.addons.map(a=>`
-          <li class="flex items-center justify-between text-sm border-b pb-2">
-            <span>✔ ${a.label}</span>
-            <span class="font-semibold">+$${a.price}</span>
-          </li>`).join('')}
-      </ul>
-    </div>`;
-  pGrid.appendChild(addons);
-
-  const promo = document.createElement('div');
-  promo.className = 'card p-5';
-  promo.innerHTML = `
-    <div class="text-lg font-semibold">Promo</div>
-    <p class="text-sm text-gray-600 mt-2">Get 5 stamps from these services and your next service is $10 off.</p>`;
-  pGrid.appendChild(promo);
-
-  // Phone booking + Contact + Footer
-  const phoneWrap = document.getElementById('phoneBooking');
-  const contactGrid = document.getElementById('contactGrid');
-  const footerList = document.getElementById('footerLocations');
-  const locSelect = document.getElementById('locationSelect');
-
-  cfg.locations.forEach(l => {
-    const row = document.createElement('div');
-    row.className = 'flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 border rounded-xl p-4';
-    row.innerHTML = `
-      <div class="space-y-1">
-        <div class="font-medium">📍 ${l.name}</div>
-        <div class="text-sm text-gray-500">${l.address}</div>
-        <div class="text-xs text-gray-500">Hours: ${l.hours}</div>
-      </div>
-      <div class="flex gap-2 flex-wrap">
-        <a href="tel:${l.phone}" class="inline-flex items-center bg-emerald-600 text-white px-4 py-2 rounded-2xl">📞 ${l.phone}</a>
-        <a href="${l.map}" target="_blank" class="inline-flex items-center border px-4 py-2 rounded-2xl">Map →</a>
-        ${l.yelp ? `<a href="${l.yelp}" target="_blank" class="inline-flex items-center border px-3 py-2 rounded-2xl">Yelp</a>` : ''}
-        ${l.google_review ? `<a href="${l.google_review}" target="_blank" class="inline-flex items-center border px-3 py-2 rounded-2xl">Google</a>` : ''}
-      </div>`;
-    phoneWrap.appendChild(row);
-
-    const ccol = document.createElement('div');
-    ccol.className = 'space-y-1';
-    ccol.innerHTML = `
-      <div class="font-medium">📍 ${l.name}</div>
-      <div class="text-sm text-gray-500">${l.address}</div>
-      <a href="tel:${l.phone}" class="text-sm text-emerald-700 hover:underline">📞 ${l.phone}</a>`;
-    contactGrid.appendChild(ccol);
-
-    const li = document.createElement('li');
-    li.innerHTML = `
-      <div class="font-medium">${l.name}</div>
-      <div class="text-gray-500">${l.address}</div>
-      <div class="flex items-center gap-2 mt-1 text-sm">
-        <a href="tel:${l.phone}" class="text-emerald-700 hover:underline">📞 ${l.phone}</a>
-        <span class="text-gray-400">·</span>
-        <a href="${l.map}" target="_blank" class="hover:underline">🗺 Map</a>
-      </div>
-      <div class="text-xs text-gray-500 mt-1">Hours: ${l.hours}</div>
-      <div class="flex gap-2 mt-1 text-sm">
-        ${l.yelp ? `<a href="${l.yelp}" target="_blank" class="inline-flex items-center border px-2 py-1 rounded-2xl">Yelp</a>` : ''}
-        ${l.google_review ? `<a href="${l.google_review}" target="_blank" class="inline-flex items-center border px-2 py-1 rounded-2xl">Google</a>` : ''}
-      </div>`;
-    footerList.appendChild(li);
-
-    const opt = document.createElement('option');
-    opt.value = l.id; opt.textContent = l.name; locSelect.appendChild(opt);
-  });
-
-  // Online booking request handler — with Gmail & copy fallback
-  const form = document.getElementById('intentForm');
-  form.addEventListener('submit', (e)=>{
-    e.preventDefault();
-    const lId = document.getElementById('locationSelect').value;
-    const l   = cfg.locations.find(x=>x.id===lId);
-    const date = document.getElementById('date').value || 'N/A';
-    const time = document.getElementById('time').value || 'N/A';
-    const name = document.getElementById('name').value || 'N/A';
-    const phone= document.getElementById('phone').value || 'N/A';
-    const notes= document.getElementById('notes').value || '';
-
-    const subject = encodeURIComponent(`Booking Request - ${name}`);
-    const body = encodeURIComponent([
-      `Location: ${l?.name || 'N/A'}`,
-      `Date: ${date}`,
-      `Time: ${time}`,
-      `Name: ${name}`,
-      `Phone: ${phone}`,
-      `Notes: ${notes}`
-    ].join('\\n'));
-
-    const mailto = `mailto:${cfg.primary_email}?subject=${subject}&body=${body}`;
-    const gmail  = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(cfg.primary_email)}&su=${subject}&body=${body}`;
-
-    // Try local mail client first
-    window.location.href = mailto;
-
-    // If no handler captured, open Gmail and show copyable fallback
-    setTimeout(()=>{
-      if (!document.hidden) {
-        window.open(gmail, "_blank");
-
-        const modal = document.getElementById('fallbackModal');
-        const text = [
-          `Location: ${l?.name || 'N/A'}`,
-          `Date: ${date}`,
-          `Time: ${time}`,
-          `Name: ${name}`,
-          `Phone: ${phone}`,
-          `Notes: ${notes}`
-        ].join('\\n');
-
-        document.getElementById('fallbackText').value = text;
-        modal.classList.remove('hidden'); modal.classList.add('flex');
-        document.getElementById('copyBtn').onclick = ()=>navigator.clipboard.writeText(text);
-        document.getElementById('closeModal').onclick = ()=>modal.classList.add('hidden');
-      }
-    }, 800);
-  });
-
-  document.getElementById('year').textContent = new Date().getFullYear();
-}
-loadConfig();
-
-// ---- Staff Schedule (reads staff.json) ----
-function timeToMins(t){const [h,m]=t.split(':').map(Number);return h*60+m;}
-function minsToTime(m){const h=String(Math.floor(m/60)).padStart(2,'0');const mm=String(m%60).padStart(2,'0');return `${h}:${mm}`;}
-
-async function renderSchedule(dateStr){
-  const res = await fetch('./staff.json?_='+Date.now());
-  const data = await res.json();
-
-  const s = data.schedules[dateStr] || {working:[], off:[]};
-  const dayBookings = data.bookings[dateStr] || [];
-  const employees = data.employees;
-
-  // Summary
-  const sum = document.getElementById('schedSummary');
-  sum.innerHTML = `
-    <div class="grid md:grid-cols-2 gap-6">
+  <!-- Footer -->
+  <footer class="bg-white border-t">
+    <div class="max-w-6xl mx-auto px-4 py-8 grid md:grid-cols-3 gap-8 text-sm">
       <div>
-        <div class="font-semibold mb-2">Working</div>
-        <div class="flex flex-wrap gap-2">
-          ${s.working.map(id=>{
-            const e = employees.find(x=>x.id===id);
-            return `<span class="inline-flex items-center px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 border">${e?e.name:id}</span>`;
-          }).join('') || '<span class="text-sm text-gray-500">(none)</span>'}
-        </div>
+        <h3 class="font-semibold text-lg">Comfort Care Reflexology</h3>
+        <p class="text-gray-600 mt-1">Relax • Heal • Refresh</p>
       </div>
       <div>
-        <div class="font-semibold mb-2">Off</div>
-        <div class="flex flex-wrap gap-2">
-          ${s.off.map(id=>{
-            const e = employees.find(x=>x.id===id);
-            return `<span class="inline-flex items-center px-3 py-1 rounded-full bg-gray-100 text-gray-600 border">${e?e.name:id}</span>`;
-          }).join('') || '<span class="text-sm text-gray-500">(none)</span>'}
-        </div>
+        <h4 class="font-medium">Hours</h4>
+        <p class="text-gray-600 mt-1">Mon–Sat 10:00 AM – 9:30 PM · Sun 11:00 AM – 9:30 PM</p>
+        <p class="text-gray-500 text-xs mt-1">Last full appointment at 8:45 PM. After 9:00 PM: 30-minute sessions only.</p>
+      </div>
+      <div>
+        <h4 class="font-medium">Contact</h4>
+        <p class="text-gray-600 mt-1">📧 comfortcarereflexology@gmail.com</p>
       </div>
     </div>
-    <p class="text-xs text-gray-500 mt-3">Edit <code>staff.json</code> in GitHub to update Working/Off and booked time slots.</p>
-  `;
+    <p class="text-center text-xs text-gray-500 pb-8">© <span id="year"></span> Comfort Care Reflexology. All rights reserved.</p>
+  </footer>
 
-  // Grid
-  const gridWrap = document.getElementById('schedGrid');
-  const start = timeToMins((data.default_hours && data.default_hours.start) || '10:00');
-  const end   = timeToMins((data.default_hours && data.default_hours.end)   || '22:00');
-  const slots = [];
-  for(let t=start; t<end; t+=30){ slots.push(minsToTime(t)); }
-
-  const bookedByEmp = {};
-  dayBookings.forEach(b=>{
-    if(!bookedByEmp[b.employee_id]) bookedByEmp[b.employee_id]=[];
-    const bs=timeToMins(b.start), be=timeToMins(b.end);
-    for(let t=bs; t<be; t+=30){ bookedByEmp[b.employee_id].push(minsToTime(t)); }
-  });
-
-  const workers = s.working.map(id=>employees.find(e=>e.id===id)).filter(Boolean);
-  gridWrap.innerHTML = workers.length
-    ? `<div class="overflow-auto">
-         <table class="w-full min-w-[640px] border">
-           <thead>
-             <tr class="bg-gray-50">
-               <th class="p-2 text-left border-r">Employee</th>
-               ${slots.map(t=>`<th class="p-2 text-xs border-r">${t}</th>`).join('')}
-             </tr>
-           </thead>
-           <tbody>
-             ${workers.map(emp=>`
-               <tr>
-                 <td class="p-2 text-sm font-medium border-r whitespace-nowrap">${emp.name}</td>
-                 ${slots.map(t=>{
-                    const booked = (bookedByEmp[emp.id]||[]).includes(t);
-                    return `<td class="p-2 text-xs text-center border ${booked?'bg-gray-200 text-gray-500':''}">` + (booked?'Booked':'') + `</td>`;
-                 }).join('')}
-               </tr>`).join('')}
-           </tbody>
-         </table>
-       </div>`
-    : `<div class="text-sm text-gray-500">No working staff listed for this date.</div>`;
-}
-
-(function initSchedule(){
-  const d = document.getElementById('schedDate');
-  const v = document.getElementById('schedView');
-  const today = new Date().toISOString().slice(0,10);
-  d.value = today;
-  function toggle(){
-    const sum = document.getElementById('schedSummary');
-    const grid = document.getElementById('schedGrid');
-    if(v.value==='summary'){ sum.classList.remove('hidden'); grid.classList.add('hidden'); }
-    else { sum.classList.add('hidden'); grid.classList.remove('hidden'); }
-  }
-  d.addEventListener('change', ()=>renderSchedule(d.value));
-  v.addEventListener('change', ()=>toggle());
-  renderSchedule(today);
-  toggle();
-})();
-</script>
+  <script>
+    (function(){
+      const openEl=document.getElementById('openBadge');
+      const closeEl=document.getElementById('closedBadge');
+      const now=new Date(); const dow=now.getDay();
+      const mins=(h,m)=>h*60+m; const cur=mins(now.getHours(),now.getMinutes());
+      let start=mins(10,0),end=mins(21,30);
+      if(dow===0){start=mins(11,0);end=mins(21,30);}
+      const isOpen=cur>=start&&cur<=end;
+      (isOpen?openEl:closeEl).classList.remove('hidden');
+      document.getElementById('year').textContent=new Date().getFullYear();
+    })();
+  </script>
 </body>
 </html>
